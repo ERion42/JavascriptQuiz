@@ -21,6 +21,7 @@ If you think it should be scrapped and started over from scratch you could sugge
 
 ## Current iteration
 Still currently in intial build phase. Working on the skeleton of the site.
+Just added the barebones of the HTML body for right now.
 
 ## Future Development Plans
 Finish the assignment.
