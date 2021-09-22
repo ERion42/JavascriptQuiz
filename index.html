@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Javascript Quiz</title>
 </head>
 <body>
     <main>
+        <!-- Developer button- delete when done -->
+        <!--
+        <button type="button" class="dev-Button">DEV BUTTON</button>
+        -->
+        
         <section id="gameStart">
             <h1>Quiz Start</h1>
+            <button type="button" class="start-button">BEGIN</button>
         </section>
 
         <section id="highScores">
@@ -24,10 +30,10 @@
             </section>
 
             <section id="quizAnswers">
-                A.
-                B.
-                C.
-                D.
+                <button type = "button" class= "ansA"><p id="aBtnAnswer">A.</p></button>
+                <button type = "button" class= "ansB"><p id="bBtnAnswer">B.</p></button>
+                <button type = "button" class= "ansC"><p id="cBtnAnswer">C.</p></button>
+                <button type = "button" class= "ansD"><p id="dBtnAnswer">D.</p></button>
             </section>
 
             <section id="nameInput">
@@ -35,12 +41,12 @@
             </section>
 
         </section>
-        
+         
         <section id="scoreBox">
-            <h4>TIME: <span class="timeLeft"></span></h4>
-            <h4>COMPLETION: <span class="completionRate"></span></h4>
-            <h4>SCORE: <span class="myScore"></span></h4>
-        </section>
+            <p>TIME: <span id="time">0</span></p>
+            <p>COMPLETION: <span id="perDone">0</span></p>
+            <p>SCORE: <span id="score">0</span></p>
+          </section >
 
 
 
@@ -51,7 +57,7 @@
 
     </main>
 
-
+    <script src="./js/script.js"></script>
     
 </body>
 </html>

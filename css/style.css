@@ -1,2 +1,69 @@
-/* No CSS yet */
+html, body {
+    height: 100%;
+}
+
+main {
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+
+main {
+    display: flex;
+    align-items: center;
+}
+
+/* Distinct Areas */
+#gameStart {
+    width: 99%;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
+
+#highScores {
+    display: none;
+    width: 99%;
+}
+
+#quizBody {
+    display: none;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+#quizQuestions {
+    width: 98.5%;
  
+}
+
+#scoreBox {
+    display: none;
+    width: 99%;
+}
+
+#nameInput {
+    display: none;
+    width: 98.5%;
+}
+
+#scoreBox {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 99%;
+}
+
+
+/* Scroll Buttons 1.0 */
+.ansA, .ansB, .ansC, .ansD {
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    width: 100%;
+
+}
