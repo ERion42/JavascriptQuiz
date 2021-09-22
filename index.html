@@ -25,15 +25,15 @@
         <section id="quizBody">
     
             <section id="quizQuestions">
-                <h2>Question: <span class="roundNumber"></span>0</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, expedita.</p>
+                <h2>Question: <span id="roundNumber"></span> </h2>
+                <p id="pageQuestion">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis, expedita.</p>
             </section>
 
             <section id="quizAnswers">
-                <button type = "button" class= "ansA"><p id="aBtnAnswer">A.</p></button>
-                <button type = "button" class= "ansB"><p id="bBtnAnswer">B.</p></button>
-                <button type = "button" class= "ansC"><p id="cBtnAnswer">C.</p></button>
-                <button type = "button" class= "ansD"><p id="dBtnAnswer">D.</p></button>
+                <button type = "button" class= "ansA" onclick="aClick()"><p id="aBtnAnswer">A.</p></button>
+                <button type = "button" class= "ansB" onclick="bClick()"><p id="bBtnAnswer">B.</p></button>
+                <button type = "button" class= "ansC" onclick="cClick()"><p id="cBtnAnswer">C.</p></button>
+                <button type = "button" class= "ansD" onclick="dClick()"><p id="dBtnAnswer">D.</p></button>
             </section>
 
             <section id="nameInput">
@@ -43,9 +43,9 @@
         </section>
          
         <section id="scoreBox">
-            <p>TIME: <span id="time">0</span></p>
-            <p>COMPLETION: <span id="perDone">0</span></p>
-            <p>SCORE: <span id="score">0</span></p>
+            <p>TIME: <span id="time"></span></p>
+            <p>COMPLETION: <span id="perDone"></span></p>
+            <p>SCORE: <span id="score"></span></p>
           </section >
 
 

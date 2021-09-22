@@ -45,63 +45,28 @@
 
 // Variables Here //
 var timeLeft;
-var myScore;
+var myScore ;
 var perComplete;
 var isComplete;
 var isWin;
 var roundNumber;
 var answerSub;
+var currQuestion;
 
 var startButton = document.querySelector(".start-button");
-// Developer Button //
-var devButton = document.querySelector(".dev-button")
-
 
 // Build the QnA Array
 const quizQuestions = [
     {
         isComplete: false,
-        question: "Inside which HTML element do we put the JavaScript?",
-        answers: {
-            a: "<javascript>",
-            b: "<js>",
-            c: "<script>",
-            d: "<scripting>",
-        },
-        correctAnswer: "c"
-    },
-    {
-        isComplete: false,
         question: "Where is the correct place to insert a JavaScript?",
         answers: {
             a: "Both the <head> section and the <body> section are correct",
-            b: "The <body> section",
-            c: "The <head> section",
+            b: "The body section",
+            c: "The head section",
             d: "You should not use JavaScript",
         },
         correctAnswer: "a",
-    },
-    {
-        isComplete: false,
-        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
-        answers: {
-            a: "<script src='xxx.js'>",
-            b: "<script name='xxx.js'>",
-            c: "<script href='xxx.js'>",
-            d: "You don't have to include the reference for external script, the computer will figure it out through context clues",
-        },
-        correctAnswer: "a",
-    },
-    {
-        isComplete: false,
-        question: "The external JavaScript file must contain the <script> tag.",
-        answers: {
-            a: "True",
-            b: "False",
-            c: "True and False",
-            d: "Neither True Nor False",
-        },
-        correctAnswer: "b",
     },
     {
         isComplete: false,
@@ -190,6 +155,12 @@ function init() {
     timeLeft = 15;
     myScore = 0;
     perComplete = 0;
+    roundNumber = 0;
+}
+
+function roundIncrease() {
+    roundNumber++;
+    randQuestion();
 }
 
 function startGame() {
@@ -197,11 +168,63 @@ function startGame() {
     document.getElementById('quizBody').style.display = 'inline';
     document.getElementById('scoreBox').style.display = 'inline';
     document.getElementById('gameStart').style.display = 'none';
+
+    init();
+    roundIncrease();
+    randQuestion();
 }
 
 
+function randQuestion() {
+    if (roundNumber <= quizQuestions.length) { 
 
+        // Randomize Question //
+        var currQuestion = Math.floor(Math.random() * quizQuestions.length);
 
+        // Display Question //
+        document.getElementById("pageQuestion").innerHTML = quizQuestions[currQuestion].question;
+        document.getElementById("aBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.a;
+        document.getElementById("bBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.b;
+        document.getElementById("cBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.c;
+        document.getElementById("dBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.d;
+        
+    } else {
+        endGame();
+    }
+}
+
+// Display Round //
+function displayRound() {
+    document.getElementById("roundNumber").innerHTML = roundNumber;
+}
+    
+function endGame() {
+    alert("It's OVER!");
+    return;
+}
+
+// For buttonclix 
+function storeVar(el) {
+    answerSub = el.value;
+}
+
+// Button Clix
+function aClick() {
+    var answerSub = "a";
+    roundIncrease();
+}
+function bClick() {
+    var answerSub = "b";
+    roundIncrease();
+}
+function cClick() {
+    var answerSub = "c";
+    roundIncrease();
+}
+function dClick() {
+    var answerSub = "d";
+    roundIncrease();
+}
 
 
 
