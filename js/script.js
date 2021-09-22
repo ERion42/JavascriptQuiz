@@ -47,8 +47,6 @@
 var timeLeft;
 var myScore ;
 var perComplete;
-var isComplete;
-var isWin;
 var roundNumber;
 var answerSub;
 var currQuestion;
@@ -150,58 +148,67 @@ const quizQuestions = [
 
 
 // Functions Here
-
 function init() {
-    timeLeft = 15;
+// This sets the parameters of the code- time, score, percentage complete, and round number
+    timeLeft = 30000;
     myScore = 0;
     perComplete = 0;
     roundNumber = 0;
+    askQuestion();
+}
+
+function askQuestion() {
+    // Display Round/Score/Question/Answers //
+    displayRound();
+    displayScore();
+    document.getElementById("pageQuestion").innerHTML = quizQuestions[roundNumber].question;
+    document.getElementById("aBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.a;
+    document.getElementById("bBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.b;
+    document.getElementById("cBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.c;
+    document.getElementById("dBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.d;
 }
 
 function roundIncrease() {
+// Increases round number then asks a question //
     roundNumber++;
-    randQuestion();
+    askQuestion();
 }
 
 function startGame() {
-    // show game segments, hide "BEGIN" button and quiz header
+    // show game segments, hide "BEGIN" button and quiz header, initialize, set timer //
     document.getElementById('quizBody').style.display = 'inline';
     document.getElementById('scoreBox').style.display = 'inline';
     document.getElementById('gameStart').style.display = 'none';
-
     init();
-    roundIncrease();
-    randQuestion();
-}
-
-
-function randQuestion() {
-    if (roundNumber <= quizQuestions.length) { 
-
-        // Randomize Question //
-        var currQuestion = Math.floor(Math.random() * quizQuestions.length);
-
-        // Display Question //
-        document.getElementById("pageQuestion").innerHTML = quizQuestions[currQuestion].question;
-        document.getElementById("aBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.a;
-        document.getElementById("bBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.b;
-        document.getElementById("cBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.c;
-        document.getElementById("dBtnAnswer").innerHTML = quizQuestions[currQuestion].answers.d;
-        
-    } else {
-        endGame();
-    }
+    timer();
 }
 
 // Display Round //
 function displayRound() {
-    document.getElementById("roundNumber").innerHTML = roundNumber;
+    document.getElementById("roundNumber").innerHTML = (roundNumber + 1);
+    document.getElementById("perDone").innerHTML = ((roundNumber) * 100 / quizQuestions.length);
 }
-    
+
+function displayScore() {
+    document.getElementById("score").innerHTML = myScore;
+}
+
+function displayTime() {
+    document.getElementById("timer").innerHTML = timeLeft;
+}
+
 function endGame() {
+// Ends game - hides all fields but the high score page //
     alert("It's OVER!");
-    return;
+    document.getElementById('nameInput').style.display = 'flex';
+    document.getElementById('quizBody').style.display = 'none';
 }
+
+
+function timer() {
+// sets amount of time before quiz ends, not currently working //
+}
+
 
 // For buttonclix 
 function storeVar(el) {
@@ -211,19 +218,42 @@ function storeVar(el) {
 // Button Clix
 function aClick() {
     var answerSub = "a";
-    roundIncrease();
+    if (answerSub === quizQuestions[roundNumber].correctAnswer) {
+        myScore = myScore + 200;
+    } else {
+        myScore = myScore - 100;
+    };
+    roundIncrease()
 }
+
 function bClick() {
     var answerSub = "b";
-    roundIncrease();
+    if (answerSub === quizQuestions[roundNumber].correctAnswer) {
+        myScore = myScore + 200;
+    } else {
+        myScore = myScore - 100;
+    };
+    roundIncrease()
 }
+
 function cClick() {
     var answerSub = "c";
-    roundIncrease();
+    if (answerSub === quizQuestions[roundNumber].correctAnswer) {
+        myScore = myScore + 200;
+    } else {
+        myScore = myScore - 100;
+    };
+    roundIncrease()
 }
+
 function dClick() {
     var answerSub = "d";
-    roundIncrease();
+    if (answerSub === quizQuestions[roundNumber].correctAnswer) {
+        myScore = myScore + 200;
+    } else {
+        myScore = myScore - 100;
+    };
+    roundIncrease()
 }
 
 

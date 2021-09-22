@@ -20,6 +20,7 @@ main {
 
 /* Distinct Areas */
 #gameStart {
+    height: 100%;
     width: 99%;
     align-items: center;
     text-align: center;
