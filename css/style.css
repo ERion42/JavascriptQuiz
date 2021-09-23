@@ -1,14 +1,15 @@
+
 html, body {
     height: 100%;
 }
 
 main {
-    
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
-    align-content: center;
+    align-content: space-around;
     justify-content: center;
 }
 
@@ -22,9 +23,7 @@ main {
 #gameStart {
     height: 100%;
     width: 99%;
-    align-items: center;
-    text-align: center;
-    align-content: center;
+    padding-top: 50%;
 }
 
 #highScores {

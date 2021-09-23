@@ -142,7 +142,7 @@ const quizQuestions = [
 // Functions Here
 function init() {
 // This sets the parameters of the code- time, score, percentage complete, and round number
-    timeLeft = 30000;
+    timeLeft = 3 * 6000;
     myScore = 0;
     roundNumber = 1;
     currQuestion = 1;
@@ -197,7 +197,7 @@ function displayTime() {
 function endGame() {
 // Ends game - hides all fields but the high score page //
     alert("It's OVER!");
-    document.getElementById('nameInput').style.display = 'inline';
+    document.getElementById('nameInput').style.display = 'none';
     document.getElementById('quizBody').style.display = 'none';
    
 }
@@ -205,6 +205,12 @@ function endGame() {
 
 function timer() {
 // sets amount of time before quiz ends, not currently working //
+    setTimeout(
+        () => {
+            endGame();
+        },
+        timeLeft
+    );
 }
 
 
