@@ -47,16 +47,16 @@
 var timeLeft;
 var myScore ;
 var perComplete;
-var roundNumber;
+var roundNumber = 1;
 var answerSub;
 var currQuestion;
+
 
 var startButton = document.querySelector(".start-button");
 
 // Build the QnA Array
 const quizQuestions = [
     {
-        isComplete: false,
         question: "Where is the correct place to insert a JavaScript?",
         answers: {
             a: "Both the <head> section and the <body> section are correct",
@@ -67,7 +67,6 @@ const quizQuestions = [
         correctAnswer: "a",
     },
     {
-        isComplete: false,
         question: "How do you write 'Hello World' in an alert box?",
         answers: {
             a: "msg('Hello World')",
@@ -78,7 +77,6 @@ const quizQuestions = [
         correctAnswer: "d",
     },
     {
-        isComplete: false,
         question: "How do you create a function in JavaScript?",
         answers: {
             a: "function: myFunction()",
@@ -89,7 +87,6 @@ const quizQuestions = [
         correctAnswer: "d",
     },
     {
-        isComplete: false,
         question: "How do you call a function named 'myFunction'?",
         answers: {
             a: "call function myFunction()",
@@ -100,7 +97,6 @@ const quizQuestions = [
         correctAnswer: "b",
     },
     {
-        isComplete: false,
         question: "How to write an IF statement in JavaScript?",
         answers: {
             a: "if i == 5 then",
@@ -111,7 +107,6 @@ const quizQuestions = [
         correctAnswer: "d",
     },
     {
-        isComplete: false,
         question: "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
         answers: {
             a: "if (i <> 5)",
@@ -120,10 +115,8 @@ const quizQuestions = [
             d: "if i =! 5 then",
         },
         correctAnswer: "b",
-
     },
     {
-        isComplete: false,
         question: "How does a WHILE loop start?",
         answers: {
             a: "while (i <= 10)",
@@ -134,7 +127,6 @@ const quizQuestions = [
         correctAnswer: "b",
     },
     {
-        isComplete: false,
         question: "JavaScript is the same as Java",
         answers: {
             a: "True",
@@ -152,26 +144,32 @@ function init() {
 // This sets the parameters of the code- time, score, percentage complete, and round number
     timeLeft = 30000;
     myScore = 0;
-    perComplete = 0;
-    roundNumber = 0;
+    roundNumber = 1;
+    currQuestion = 1;
     askQuestion();
 }
 
 function askQuestion() {
     // Display Round/Score/Question/Answers //
-    displayRound();
-    displayScore();
-    document.getElementById("pageQuestion").innerHTML = quizQuestions[roundNumber].question;
-    document.getElementById("aBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.a;
-    document.getElementById("bBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.b;
-    document.getElementById("cBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.c;
-    document.getElementById("dBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.d;
+        displayScore();
+        displayRound();
+        document.getElementById("pageQuestion").innerHTML = quizQuestions[roundNumber].question;
+        document.getElementById("aBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.a;
+        document.getElementById("bBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.b;
+        document.getElementById("cBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.c;
+        document.getElementById("dBtnAnswer").innerHTML = quizQuestions[roundNumber].answers.d;
 }
 
 function roundIncrease() {
 // Increases round number then asks a question //
-    roundNumber++;
-    askQuestion();
+    if (roundNumber < 7) {
+        currQuestion++;
+        roundNumber++;
+        askQuestion();
+    } else {
+        endGame();
+    }
+
 }
 
 function startGame() {
@@ -185,8 +183,7 @@ function startGame() {
 
 // Display Round //
 function displayRound() {
-    document.getElementById("roundNumber").innerHTML = (roundNumber + 1);
-    document.getElementById("perDone").innerHTML = ((roundNumber) * 100 / quizQuestions.length);
+    document.getElementById("roundNumber").innerHTML = (currQuestion);
 }
 
 function displayScore() {
@@ -200,8 +197,9 @@ function displayTime() {
 function endGame() {
 // Ends game - hides all fields but the high score page //
     alert("It's OVER!");
-    document.getElementById('nameInput').style.display = 'flex';
+    document.getElementById('nameInput').style.display = 'inline';
     document.getElementById('quizBody').style.display = 'none';
+   
 }
 
 
@@ -257,6 +255,5 @@ function dClick() {
 }
 
 
-
-
+// Button Click to start the game
 startButton.addEventListener("click", startGame);

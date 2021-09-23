@@ -20,8 +20,8 @@ Please contact me if you have any suggestions. Either things that need to be cha
 If you think it should be scrapped and started over from scratch you could suggest that too, but it wouldn't be very helpful without telling me exactly why it doesn't work.
 
 ## Current iteration
-Still currently in intial build phase. Working on the skeleton of the site.
-Just added the barebones of the HTML body for right now.
+Still currently in intial build phase. It's just a little past a skeleton at this point.
+The quiz runs, tallies score, and ends as expected. Currently there is no timer, nor is there a high score option.
 
 ## Future Development Plans
 Finish the assignment.
